@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken'
 import config from './config'
 import MongoDB from './utils/mongo'
 import localStrategy from './utils/auth/local'
-import { UserService } from './services/'
+import { UserService, MovieService, AuditoriumService } from './services/'
 
 const app = express()
 const port = process.env.PORT ?? 3000
@@ -22,10 +22,12 @@ passport.use(localStrategy)
 
 // Services
 const userService = new UserService()
+const movieService = new MovieService()
+const auditoriumService = new AuditoriumService()
 
 // Authenticate
 app.post('/api/signin', async (req, res, next) => {
-  passport.authenticate('local', (error: any, user: any) => {
+  passport.authenticate('local', (error, user) => {
     if (error) return next(error)
 
     req.login(user, { session: false }, async error => {
@@ -68,6 +70,7 @@ app.post('/api/signup', async (req, res, next) => {
 app.get('/api/users', async (req, res, next) => {
   try {
     const data = await userService.findAll()
+
     return res.status(200).json(data)
   } catch (err) {
     next(err)
@@ -77,7 +80,48 @@ app.get('/api/users', async (req, res, next) => {
 // Movies
 app.get('/api/movies', async (req, res, next) => {
   try {
-    return res.status(200).json({ data: [] })
+    const data = await movieService.findAll()
+
+    return res.status(200).json({ data })
+  } catch (err) {
+    next(err)
+  }
+})
+app.post('/api/movies', async (req, res, next) => {
+  const { body: _data } = req
+
+  try {
+    const data = await movieService.create(_data)
+
+    return res.status(200).json({
+      message: 'Movie create successfully',
+      data,
+    })
+  } catch (err) {
+    next(err)
+  }
+})
+
+// Auditorium
+app.get('/api/auditorium', async (req, res, next) => {
+  try {
+    const data = await auditoriumService.findAll()
+
+    return res.status(200).json({ data })
+  } catch (err) {
+    next(err)
+  }
+})
+app.post('/api/auditorium', async (req, res, next) => {
+  const { body: _data } = req
+
+  try {
+    const data = await auditoriumService.create(_data)
+
+    return res.status(200).json({
+      message: 'Auditorium create successfully',
+      data,
+    })
   } catch (err) {
     next(err)
   }

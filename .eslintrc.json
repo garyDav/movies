@@ -1,5 +1,14 @@
 {
-  "extends": "eslint-config-prettier",
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "eslint-config-prettier"],
+  "overrides": [],
+  "parserOptions": {
+    "sourceType": "module",
+    "requireConfigFile": false
+  },
   "rules": {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],

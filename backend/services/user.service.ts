@@ -6,12 +6,12 @@ class UserServiceDB {
     return UserModel.find()
   }
 
-  async encryptPassword(password: any) {
+  async encryptPassword(password) {
     const salt = await bcrypt.genSalt(10)
     return await bcrypt.hash(password, salt)
   }
 
-  async register(data: any) {
+  async register(data) {
     // Prepare Data
     data.password = await this.encryptPassword(data?.password)
 
