@@ -6,7 +6,17 @@ import jwt from 'jsonwebtoken'
 import config from './config'
 import MongoDB from './utils/mongo'
 import localStrategy from './utils/auth/local'
-import { UserService, MovieService, AuditoriumService } from './services/'
+import {
+  UserService,
+  MovieService,
+  AuditoriumService,
+  BuyService,
+} from './services/'
+import {
+  logErrors,
+  wrapErrors,
+  clientErrorHandler,
+} from './middlewares/errorsHandlers'
 
 const app = express()
 const port = process.env.PORT ?? 3000
@@ -24,10 +34,11 @@ passport.use(localStrategy)
 const userService = new UserService()
 const movieService = new MovieService()
 const auditoriumService = new AuditoriumService()
+const buyService = new BuyService()
 
 // Authenticate
 app.post('/api/signin', async (req, res, next) => {
-  passport.authenticate('local', (error, user) => {
+  passport.authenticate('local', (error: any, user: any) => {
     if (error) return next(error)
 
     req.login(user, { session: false }, async error => {
@@ -103,7 +114,7 @@ app.post('/api/movies', async (req, res, next) => {
 })
 
 // Auditorium
-app.get('/api/auditorium', async (req, res, next) => {
+app.get('/api/auditoriums', async (req, res, next) => {
   try {
     const data = await auditoriumService.findAll()
 
@@ -112,7 +123,7 @@ app.get('/api/auditorium', async (req, res, next) => {
     next(err)
   }
 })
-app.post('/api/auditorium', async (req, res, next) => {
+app.post('/api/auditoriums', async (req, res, next) => {
   const { body: _data } = req
 
   try {
@@ -126,6 +137,34 @@ app.post('/api/auditorium', async (req, res, next) => {
     next(err)
   }
 })
+
+// Buy
+app.post('/api/buys', async (req, res, next) => {
+  const { body: _data } = req
+
+  try {
+    const data = await buyService.create(_data)
+
+    return res.status(200).json({
+      message: 'Buy create successfully',
+      data,
+    })
+  } catch (err) {
+    next(err)
+  }
+})
+
+// Verify router
+app.use((req, res) => {
+  const payload = new Error('Página no encontrada')
+
+  res.status(500).json(payload)
+})
+
+// Error handlers
+app.use(logErrors)
+app.use(wrapErrors)
+app.use(clientErrorHandler)
 
 app.listen(port, async () => {
   console.log(`Server is running at http://localhost:${port}`)

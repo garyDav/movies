@@ -5,7 +5,7 @@ class MovieServiceDB {
     return MovieModel.find()
   }
 
-  async create(data) {
+  async create(data: any) {
     const newMovie = new MovieModel(data)
 
     return newMovie.save()

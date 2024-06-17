@@ -5,7 +5,7 @@ class AuditoriumServiceDB {
     return AuditoriumModel.find()
   }
 
-  async create(data) {
+  async create(data: any) {
     const newMovie = new AuditoriumModel(data)
 
     return newMovie.save()

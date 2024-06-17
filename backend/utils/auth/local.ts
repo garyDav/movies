@@ -1,4 +1,7 @@
 import { Strategy } from 'passport-local'
+import { UserService } from '../../services/'
+
+const userService = new UserService()
 
 const localStrategy = new Strategy(
   {
@@ -6,11 +9,14 @@ const localStrategy = new Strategy(
   },
   async function (username, password, done) {
     try {
-      const userFound = { _id: 1, username, password, name: 'Alvarito', role: 'admin' }
+      const userFound = await userService.findByUsername(username)
 
       if (!userFound) return done('Error: Auth', false)
 
-      const matchPassword = true
+      const matchPassword = await userService.comparePassword(
+        password,
+        userFound.password,
+      )
 
       if (!matchPassword) return done('Error: Auth', false)
 
@@ -22,3 +28,4 @@ const localStrategy = new Strategy(
 )
 
 export default localStrategy
+
