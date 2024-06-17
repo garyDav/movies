@@ -2,6 +2,8 @@ import { useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
+import '../../assets'
+
 // import { startLogin } from '../../store/slices/auth'
 
 export default function Signin() {

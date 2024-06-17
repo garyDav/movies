@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: sans-serif;
+    line-height: 1.15;
+}
+body{
+    font-family: sans-serif;
+    background: rgb(63,74,62);
+    background: linear-gradient(90deg, rgba(63,74,62,1) 0%, rgba(78,118,59,1) 50%, rgba(25,60,13,1) 100%);
+}
+header {
+    background-color: rgba(0,0,0,0.75);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    display: flex;
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+header nav ul li a{
+    list-style: none;
+    text-decoration: none;
+    color:#fff;
+    font-size: 15px;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 40px;
+    font-size: 20px;
+}
+
+.registro li {
+    list-style: none;
+    display: inline;
+}
+
+.registro a {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 15px;
+} 
+h1{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 50px;
+    color: rgba(0, 0, 0, 0.75);
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+table{
+    border-collapse: collapse;
+}
+
+td{
+    border: 20px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+.circle{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.circle.disponible{
+    background-color: rgb(198, 255, 198);
+}
+.circle.reservado{   
+    background-color: yellow;
+}
+.circle.comprado{
+    background-color: red;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-contenedor{
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus{
+    color:black;
+    text-decoration: none;
+    cursor: pointer;
+}

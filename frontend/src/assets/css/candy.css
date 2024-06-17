@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.contenedorCandy{
+    display: flexbox;
+    padding: 50px;
+}
+.contenedorCandy h1{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    font-size: 4em;
+    text-align: center;
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbow 3s linear infinite;
+}
+@keyframes rainbow {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+.imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imagen img{
+    width: 800px;
+}
+
+.productos{
+    display: grid;
+    grid-template-rows: repeat(1/12);
+    grid-template-columns: repeat(1/12);
+    padding: 20px;
+}
+.palomitas{
+    display: grid;
+    grid-column: 1/5;
+    grid-row: auto;
+    padding: 20px;
+    width: 90%;
+    background-color: yellow;
+}
+.gaseosas{
+    display: grid;
+    grid-column: 5/9;
+    grid-row: auto;
+    padding: 20px;
+    width: 90%;
+    background-color: red;
+}
+.combos{
+    display: grid;
+    grid-row: auto;
+    grid-column: 9/13;
+    padding: 20px;
+    width: 90%;
+    background-color: green;
+}
+
+.imgProductos{
+    display: flex;
+    justify-content: center;
+}
+.mostrarmas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+.mostrarmas button{
+    font-size: 15px;
+    cursor: pointer;
+
+}

@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+}
+
+body {
+    background: rgb(63,74,62);
+    background: linear-gradient(90deg, rgba(63,74,62,1) 0%, rgba(78,118,59,1) 50%, rgba(25,60,13,1) 100%);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+header {
+    background-color: rgba(0,0,0,0.75);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    display: flex;
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+header nav ul li a{
+    list-style: none;
+    text-decoration: none;
+    color:#fff;
+    font-size: 15px;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 40px;
+    font-size: 20px;
+}
+
+.registro li {
+    list-style: none;
+    display: inline;
+}
+
+.registro a {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.carrusel {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    height: auto;
+    top: 30px;
+}
+
+.botones {
+    display: flex;
+    transition: 0.5s;
+}
+
+.boton {
+    flex: 0 0 100%;
+}
+
+.boton img {
+    max-width: 95%;
+    height: auto;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.controles {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.controles label:hover {
+    scale: 1.05;
+}
+
+label {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 35%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 3ms ease-in-out;
+}
+
+label[for="boton1"],
+label[for="boton2"],
+label[for="boton3"],
+label[for="boton4"],
+label[for="boton5"] {
+    background-color: #b4b4b4;
+}
+
+input[type="radio"]#boton1:checked ~ .botones {
+    transform: translateX(0%);
+}
+
+input[type="radio"]#boton2:checked ~ .botones {
+    transform: translateX(-100%);
+}
+
+input[type="radio"]#boton3:checked ~ .botones {
+    transform: translateX(-200%);
+}
+
+input[type="radio"]#boton4:checked ~ .botones {
+    transform: translateX(-300%);
+}
+
+input[type="radio"]#boton5:checked ~ .botones {
+    transform: translateX(-400%);
+}
+
+input[type="radio"]#boton1:checked ~ .controles label[for="boton1"],
+input[type="radio"]#boton2:checked ~ .controles label[for="boton2"],
+input[type="radio"]#boton3:checked ~ .controles label[for="boton3"],
+input[type="radio"]#boton4:checked ~ .controles label[for="boton4"],
+input[type="radio"]#boton5:checked ~ .controles label[for="boton5"] {
+    background-color: #fff;
+    width: 30px;
+    scroll-margin: 1.2;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.text h1{
+    font-size: 40px;
+}
+#cartelera{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.cartelera {
+    position: relative;
+    width: 85%;
+    overflow: hidden;
+    margin: 30px auto; 
+    padding: 20px;
+
+}
+.carrusel-slide {
+    display: flex;
+    transition: 0.5s ease-in-out;
+    width: calc(180px * 7);
+}
+
+.carruselImg img {
+    width: 180px;
+    height: 300px;
+    flex-shrink: 0;
+    margin-right: 40px;
+}
+
+.carrusel-button {
+    position: absolute;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carrusel-button.prev {
+    left: 10px;
+}
+
+.carrusel-button.next {
+    right: 10px;
+}
+
+#nuevaCartelera{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.nuevaCartelera {
+    position: relative;
+    width: 85%;
+    overflow: hidden;
+    margin: 30px auto; 
+    padding: 20px;
+
+}
+
+/*CandyBar*/
+.contenedorCandy{
+    display: flexbox;
+    padding: 50px;
+}
+.contenedorCandy h1{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    font-size: 4em;
+    text-align: center;
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbow 3s linear infinite;
+}
+@keyframes rainbow {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+.imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imagen img{
+    width: 800px;
+}
+
+.productos{
+    display: grid;
+    grid-template-rows: repeat(1/12);
+    grid-template-columns: repeat(1/12);
+    padding: 20px;
+}
+.palomitas{
+    display: grid;
+    grid-column: 1/5;
+    grid-row: auto;
+    padding: 20px;
+    width: 90%;
+    background-color: yellow;
+}
+.gaseosas{
+    display: grid;
+    grid-column: 5/9;
+    grid-row: auto;
+    padding: 20px;
+    width: 90%;
+    background-color: red;
+}
+.combos{
+    display: grid;
+    grid-row: auto;
+    grid-column: 9/13;
+    padding: 20px;
+    width: 90%;
+    background-color: green;
+}
+
+.imgProductos{
+    display: flex;
+    justify-content: center;
+}
+.mostrarmas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+.mostrarmas button{
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+.foot{
+    display: grid;
+    width: 90%;
+    margin: auto;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(auto);
+}
+.informacion{
+    display: grid;
+    grid-column: 1/5;
+    grid-row: auto;
+}.informacion a{
+    text-decoration: none;
+    color: #fff;
+}
+.contacto{
+    display: grid;
+    grid-column: 5/9;
+    grid-row: auto;
+}
+.p1{
+    margin-bottom:5px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 700;
+}
+.p2{
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+    font-size: 13px;
+}
+.redes-sociales{
+    display: grid;
+    grid-column: 9/13;
+    grid-row: auto;
+}
+.redes-sociales a {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+.redes-sociales a:hover{
+    transform: scale(1.1);
+}
