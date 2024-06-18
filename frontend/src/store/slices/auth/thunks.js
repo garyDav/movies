@@ -11,36 +11,19 @@ import {
 export const startLogin = (username, password) => {
   return async dispatch => {
     try {
-      const { headers, data: response } = await privateApi.post('/auth/signin', {
+      const { headers, data: response } = await privateApi.post('/signin', {
         username,
         password,
       })
+      console.log(headers, response)
       const { message, data } = response
 
-      if (data['roles']) {
-        if (
-          (data['roles'].filter(el => el === 'estudiante').length &&
-            password === 'donbosco24') ||
-          (data['roles'].filter(el => el === 'profesor').length &&
-            password === 'DonBosco.2024')
-        ) {
-          dispatch(setAuthorization(headers.authorization))
-          return
-        }
-      }
-
       dispatch(resetAuthorization())
-      dispatch(setNivel(response.data.niveles.find(el => el)))
       dispatch(
         login({
           id: response.data._id,
           username: response.data.username,
-          email: response.data.email,
-          carnet: response.data.carnet,
-          roles: response.data.roles,
-          niveles: response.data.niveles,
-          estudiante: response.data.estudiante,
-          token: headers.authorization,
+          role: response.data.role,
           tokenInitDate: new Date().getTime(),
         }),
       )
@@ -108,6 +91,42 @@ export const startChecking = () => {
     } catch (error) {
       console.error(error)
       dispatch(checkingFinish())
+    }
+  }
+}
+
+export const startRegister = formValues => {
+  return async (dispatch, getState) => {
+    try {
+      const { headers, data: response } = await privateApi.post('/signup', formValues, {
+        headers: {
+          'Content-type': 'application/json',
+        },
+      })
+      console.log(headers, response)
+
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: `${response.message}`,
+        text: `¡Usuario registrado: ${response.data.username}!`,
+        showConfirmButton: false,
+        timer: 1500,
+      })
+    } catch (error) {
+      if (error.response) {
+        const { data } = error.response
+        Swal.fire({
+          position: 'top',
+          icon: 'error',
+          title: `${data.statusCode}: ${data.error}`,
+          html: `<u>${data.message}</u><br>${data.stack ? data.stack : ''}`,
+          showConfirmButton: false,
+          timer: 2500,
+        })
+      } else {
+        Swal.fire('Error', JSON.stringify(error.message), 'error')
+      }
     }
   }
 }

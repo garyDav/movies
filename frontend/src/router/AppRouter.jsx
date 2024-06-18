@@ -24,7 +24,7 @@ export function AppRouter() {
         <Route
           path='/signin'
           element={
-            <PublicRoute isAuthenticated={false}>
+            <PublicRoute isAuthenticated={!!token && !authorization}>
               <Signin />
             </PublicRoute>
           }
@@ -43,9 +43,9 @@ export function AppRouter() {
         <Route
           path='/'
           element={
-            <PublicRoute isAuthenticated={!!token && !authorization}>
+            <PrivateRoute isAuthenticated={true}>
               <Dashboard />
-            </PublicRoute>
+            </PrivateRoute>
           }
         />
         {/*<Route

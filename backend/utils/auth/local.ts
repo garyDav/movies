@@ -28,4 +28,3 @@ const localStrategy = new Strategy(
 )
 
 export default localStrategy
-
