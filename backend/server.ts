@@ -156,9 +156,7 @@ app.post('/api/buys', async (req, res, next) => {
 
 // Verify router
 app.use((req, res) => {
-  const payload = new Error('Página no encontrada')
-
-  res.status(500).json(payload)
+  res.status(500).json({error: 'Página no encontrada'})
 })
 
 // Error handlers
