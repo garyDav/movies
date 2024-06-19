@@ -7,8 +7,7 @@ export const authSlice = createSlice({
     checking: true,
     id: null,
     username: null,
-    email: null,
-    carnet: null,
+    role: null,
     token: null,
     tokenInitDate: null,
   },
@@ -16,11 +15,7 @@ export const authSlice = createSlice({
     login: (state, action) => {
       state.id = action.payload.id
       state.username = action.payload.username
-      state.email = action.payload.email
-      state.carnet = action.payload.carnet
-      state.roles = action.payload.roles
-      state.niveles = action.payload.niveles
-      state.estudiante = action.payload.estudiante
+      state.role = action.payload.role
       state.token = action.payload.token
       state.tokenInitDate = action.payload.tokenInitDate
 
@@ -29,8 +24,7 @@ export const authSlice = createSlice({
     logout: state => {
       state.id = null
       state.username = null
-      state.email = null
-      state.carnet = null
+      state.role = null
       state.token = null
       state.tokenInitDate = null
 

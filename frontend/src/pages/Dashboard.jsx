@@ -1,5 +1,7 @@
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { logout } from '../store/slices/auth/'
 import '../assets/css/principal.css'
 
 import Logo from '/logo/Cine_SAS.png'
@@ -17,9 +19,12 @@ import Simios from '/cartelera/simios.jpg'
 import CandybarImg from '/candybar/images.jpg'
 
 export default function Dashboard() {
+  const dispatch = useDispatch()
+  const { username } = useSelector(state => state.authState)
+
   return (
-    <div className='principal'>
-      <header>
+    <div className="principal">
+      <header className="p-header">
         <nav>
           <ul>
             <li className="nav-li"><Link to="/" id="inicio-button">INICIO</Link></li>
@@ -29,8 +34,10 @@ export default function Dashboard() {
           <img src={Logo} alt="CineSAS" />
         </div>
         <div className="p-registro">
-          <li><Link to="/signin">INICIAR SESION</Link></li>
-          <li><Link to="/signup">REGISTRARSE</Link></li>
+          {!username ? (<>
+            <li><Link to="/signin">INICIAR SESION</Link></li>
+            <li><Link to="/signup">REGISTRARSE</Link></li>
+          </>) : (<><li>{username}</li><li onClick={() => dispatch(logout())}>salir</li></>)}
         </div>
       </header>
 
@@ -44,29 +51,29 @@ export default function Dashboard() {
 
           <div className="botones">
             <div className="boton">
-              <a href="../pages/peliculas.html">
+              <Link to="/movies">
                 <img src={AmigosImg} alt="" />
-              </a>
+              </Link>
             </div>
             <div className="boton">
-              <a href="../pages/peliculas.html">
+              <Link to="/movies">
                 <img src={Bob} alt="" />
-              </a>
+              </Link>
             </div>
             <div className="boton">
-              <a href="../pages/peliculas.html">
+              <Link to="/movies">
                 <img src={Garfield} alt="" />
-              </a>
+              </Link>
             </div>
             <div className="boton">
-              <a href="../pages/peliculas.html">
+              <Link to="/movies">
                 <img src={Kungfu} alt="" />
-              </a>
+              </Link>
             </div>
             <div className="boton">
-              <a href="../pages/peliculas.html">
+              <Link to="/movies">
                 <img src={Oppen} alt="" />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="controles">
@@ -83,24 +90,24 @@ export default function Dashboard() {
           </div>
           <div className="carruselImg">
             <div className="carrusel-slide">
-              <a href="../pages/peliculas.html">
+              <Link to="/movies">
                 <img src={AmigosCartelera} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Bad} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Dead} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Gar} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Hai} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Simios} alt="" />
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -111,24 +118,24 @@ export default function Dashboard() {
           </div>
           <div className="carruselImg">
             <div className="carrusel-slide">
-              <a href="../pages/peliculas.html">
+              <Link to="/movies">
                 <img src={AmigosCartelera} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Bad} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Dead} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Gar} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Hai} alt="" />
-              </a>
-              <a href="../pages/peliculas.html">
+              </Link>
+              <Link to="/movies">
                 <img src={Simios} alt="" />
-              </a>
+              </Link>
             </div>
           </div>
         </section>

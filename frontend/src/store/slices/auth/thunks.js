@@ -24,6 +24,7 @@ export const startLogin = (username, password) => {
           id: response.data._id,
           username: response.data.username,
           role: response.data.role,
+          token: headers.authorization,
           tokenInitDate: new Date().getTime(),
         }),
       )

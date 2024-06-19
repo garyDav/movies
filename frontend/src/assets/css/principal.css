@@ -6,7 +6,7 @@
     height: 100vh;
 }
 
-header {
+.p-header {
     background-color: rgba(0, 0, 0, 0.75);
     color: #fff;
     padding: 20px;
@@ -22,20 +22,20 @@ header {
     padding: 10px;
 }
 
-header nav ul {
+.p-header nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-header nav ul li a {
+.p-header nav ul li a {
     list-style: none;
     text-decoration: none;
     color: #fff;
     font-size: 15px;
 }
 
-header nav ul li {
+.p-header nav ul li {
     display: inline;
     margin-right: 40px;
     font-size: 20px;
@@ -44,6 +44,8 @@ header nav ul li {
 .p-registro li {
     list-style: none;
     display: inline;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .p-registro a {
@@ -76,7 +78,7 @@ header nav ul li {
     height: auto;
 }
 
-input[type="radio"] {
+.inicio input[type="radio"] {
     display: none;
 }
 
@@ -90,7 +92,7 @@ input[type="radio"] {
     scale: 1.05;
 }
 
-label {
+.inicio label {
     display: inline-block;
     width: 18px;
     height: 18px;
@@ -101,7 +103,7 @@ label {
     transition: 3ms ease-in-out;
 }
 
-label[for="boton1"],
+.inicio label[for="boton1"],
 label[for="boton2"],
 label[for="boton3"],
 label[for="boton4"],
@@ -109,27 +111,27 @@ label[for="boton5"] {
     background-color: #b4b4b4;
 }
 
-input[type="radio"]#boton1:checked~.botones {
+.inicio input[type="radio"]#boton1:checked~.botones {
     transform: translateX(0%);
 }
 
-input[type="radio"]#boton2:checked~.botones {
+.inicio input[type="radio"]#boton2:checked~.botones {
     transform: translateX(-100%);
 }
 
-input[type="radio"]#boton3:checked~.botones {
+.inicio input[type="radio"]#boton3:checked~.botones {
     transform: translateX(-200%);
 }
 
-input[type="radio"]#boton4:checked~.botones {
+.inicio input[type="radio"]#boton4:checked~.botones {
     transform: translateX(-300%);
 }
 
-input[type="radio"]#boton5:checked~.botones {
+.inicio input[type="radio"]#boton5:checked~.botones {
     transform: translateX(-400%);
 }
 
-input[type="radio"]#boton1:checked~.controles label[for="boton1"],
+.inicio input[type="radio"]#boton1:checked~.controles label[for="boton1"],
 input[type="radio"]#boton2:checked~.controles label[for="boton2"],
 input[type="radio"]#boton3:checked~.controles label[for="boton3"],
 input[type="radio"]#boton4:checked~.controles label[for="boton4"],

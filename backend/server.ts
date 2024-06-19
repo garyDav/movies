@@ -26,7 +26,7 @@ const authJwtSecret =
 const authJwtTime = process.env.authJwtTime ?? '1h'
 
 app.use(json())
-app.use(cors())
+app.use(cors({exposedHeaders: 'Authorization, Content-Disposition'}))
 app.use(passport.initialize())
 passport.use(localStrategy)
 

@@ -13,7 +13,6 @@ const initEvent = {
   lastname: '',
   fecha_nacimiento: new Date('01-01-1990').toISOString().substring(0, 10),
   celular: '',
-  role: '',
 }
 
 export default function App() {
@@ -30,7 +29,6 @@ export default function App() {
     lastname,
     fecha_nacimiento,
     celular,
-    role,
   } = formValues
 
   // handleChange
@@ -99,13 +97,6 @@ export default function App() {
               <input name="celular" value={celular} onChange={handleInputChange} type="text" className="control" placeholder="Celular" />
               <div className="ingresodatos">
                 <span className="fas fa-phone"></span>
-              </div>
-            </div>
-
-            <div className="datos">
-              <input name="role" value={role} onChange={handleInputChange} type="text" className="control" placeholder="Rol" />
-              <div className="ingresodatos">
-                <span className="fas fa-user-shield"></span>
               </div>
             </div>
 

@@ -1,18 +1,11 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-html{
+.buy {
     font-family: sans-serif;
-    line-height: 1.15;
+    background: rgb(63, 74, 62);
+    background: linear-gradient(90deg, rgba(63, 74, 62, 1) 0%, rgba(78, 118, 59, 1) 50%, rgba(25, 60, 13, 1) 100%);
 }
-body{
-    font-family: sans-serif;
-    background: rgb(63,74,62);
-    background: linear-gradient(90deg, rgba(63,74,62,1) 0%, rgba(78,118,59,1) 50%, rgba(25,60,13,1) 100%);
-}
-header {
-    background-color: rgba(0,0,0,0.75);
+
+.buy-header {
+    background-color: rgba(0, 0, 0, 0.75);
     color: #fff;
     padding: 20px;
     display: flex;
@@ -20,43 +13,47 @@ header {
     align-items: center;
 }
 
-.logo img {
+.buy-logo img {
     display: flex;
     width: 300px;
     height: 50px;
     padding: 10px;
 }
 
-header nav ul {
+.buy-header nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-header nav ul li a{
+
+.buy-header nav ul li a {
     list-style: none;
     text-decoration: none;
-    color:#fff;
+    color: #fff;
     font-size: 15px;
 }
 
-header nav ul li {
+.buy-header nav ul li {
     display: inline;
     margin-right: 40px;
     font-size: 20px;
 }
 
-.registro li {
+.buy-registro li {
     list-style: none;
     display: inline;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
-.registro a {
+.buy-registro a {
     color: #fff;
     margin-right: 20px;
     text-decoration: none;
     font-size: 15px;
-} 
-h1{
+}
+
+.buy h1 {
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -64,39 +61,45 @@ h1{
     font-size: 50px;
     color: rgba(0, 0, 0, 0.75);
 }
-.contenedor{
+
+.buy-contenedor {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     margin-top: 50px;
 }
-table{
+
+.buy table {
     border-collapse: collapse;
 }
 
-td{
+.buy td {
     border: 20px solid #ccc;
     padding: 10px;
     text-align: center;
 }
-.circle{
+
+.buy-circle {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     cursor: pointer;
 }
-.circle.disponible{
+
+.buy-circle.disponible {
     background-color: rgb(198, 255, 198);
 }
-.circle.reservado{   
+
+.buy-circle.reservado {
     background-color: yellow;
 }
-.circle.comprado{
+
+.buy-circle.comprado {
     background-color: red;
 }
 
-.modal{
+.buy-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -108,23 +111,25 @@ td{
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
-.modal-contenedor{
+
+.buy-modal-contenedor {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
 }
-.close{
+
+.buy-close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus{
-    color:black;
+.buy-close:hover,
+.buy-close:focus {
+    color: black;
     text-decoration: none;
     cursor: pointer;
 }
